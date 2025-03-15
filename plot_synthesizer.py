@@ -1,5 +1,5 @@
 import torch
-from transformers import pipeline
+from plot_generators import plot_t5_impl as plot_llm
 
 def synthesize_plot(title, transcript, captions, config):
     """Synthesize a plot description using FLAN-T5-large."""
@@ -19,14 +19,4 @@ def synthesize_plot(title, transcript, captions, config):
     - Frame Descriptions: {captions_str}
     """
 
-    # Load FLAN-T5-large
-    llm = pipeline(
-        "text2text-generation",
-        model="google/flan-t5-large",
-        model_kwargs={"torch_dtype": torch.bfloat16},
-        device=0 if device == "cuda" else -1  # 0 for GPU, -1 for CPU
-    )
-    
-    # Generate plot (increase max_length for better output)
-    response = llm(prompt, max_length=1000, truncation=True)
-    return response[0]['generated_text'].strip()
+    return plot_llm(prompt, device)
