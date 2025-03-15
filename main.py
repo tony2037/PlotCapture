@@ -19,8 +19,8 @@ def process_video(video_path):
     print("Transcript:\n", transcript)
 
     # Extract frames and generate captions
-    extract_frames(video_path, CONFIG)
-    captions = generate_captions(CONFIG)
+    frames_path = extract_frames(video_path, CONFIG)
+    captions = generate_captions(frames_path, CONFIG["frame_interval"])
     print("Frame Captions:\n", captions)
 
     # Synthesize plot
