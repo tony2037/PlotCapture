@@ -1,0 +1,8 @@
+{
+    "video_dir": "video/",
+    "frame_interval": 10,
+    "frame_dir": "frames/",
+    "audio_file": "audio.mp3",
+    "timestamp_format": "HH:MM:SS",
+    "supported_formats": [".mp4", ".avi"]
+}
