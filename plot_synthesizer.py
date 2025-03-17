@@ -1,5 +1,5 @@
 import torch
-from plot_generators import plot_t5_impl as plot_llm
+from plot_generators import plot_Phi4MiniInstruct_impl as plot_llm
 
 def synthesize_plot(title, transcript, captions, config):
     """Synthesize a plot description using FLAN-T5-large."""
@@ -19,4 +19,5 @@ def synthesize_plot(title, transcript, captions, config):
     - Frame Descriptions: {captions_str}
     """
 
+    print(f"Prompt: {prompt}")
     return plot_llm(prompt, device)
